@@ -11,7 +11,7 @@ include('functions.php');
 //     }
 // }
 $id = $_SESSION['user']['id'];
-$query=mysqli_query($conn,"select * from `users` where id='$id'");
+$query=mysqli_query($conn,"select * from `users` where id ='$id'");
 $row=mysqli_fetch_assoc($query);
 
 ?>
@@ -30,10 +30,6 @@ $row=mysqli_fetch_assoc($query);
 <form method="post" action="">
 	<?php echo display_error(); ?>	
         <div class="input-group">
-            <label>ID</label>
-            <input type="text" value="<?php echo $row['id']; ?>" name="id1" readonly>
-        </div>
-        <div class="input-group">
             <label>Username</label>
             <input type="text" value="<?php echo $row['username']; ?>" name="username1" required pattern="[a-zA-Z1-9]{1,30}">
         </div>
@@ -46,7 +42,7 @@ $row=mysqli_fetch_assoc($query);
             <input type="email" value="<?php echo $row['email']; ?>" name="email1" required >
         </div>
         <div class="input-group">
-            <button type="submit" class="btn" name="saveuserid_btn"  onclick="return checkDelete()">Save</button>
+            <button type="submit" class="btn" name="saveuserusid_btn"  onclick="return checkDelete()">Save</button>
         </div>
 
 <div class="back" style="text-align: center">
@@ -56,7 +52,7 @@ $row=mysqli_fetch_assoc($query);
         function checkDelete(){
         return confirm('Are you update?');
     }
-</script>
+    </script>
 
 
 </body>

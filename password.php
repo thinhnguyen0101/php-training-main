@@ -30,10 +30,6 @@ $row=mysqli_fetch_assoc($query);
 <form method="post" action="">
 	<?php echo display_error(); ?>	
         <div class="input-group">
-            <label>ID</label>
-            <input type="text" value="<?php echo $row['id']; ?>" name="id1" readonly>
-        </div>
-        <div class="input-group">
             <label>Username</label>
             <input type="text" value="<?php echo $row['username']; ?>" name="username1" readonly>
         </div>
@@ -54,12 +50,16 @@ $row=mysqli_fetch_assoc($query);
             <input type="password" name="password3" pattern="[a-zA-Z1-9]{1,15}">
         </div>
         <div class="input-group">
-            <button type="submit" class="btn" name="passid_btn">Save</button>
+            <button type="submit" class="btn" name="password_btn" onclick="return updatepassword()">Save</button>
         </div>
 <div class="back" style="text-align: center">
     <input type="button" value="Back" onClick="javascript:history.go(-2)" />
 </div>
-	
+    <script language="JavaScript" type="text/javascript">
+        function updatepassword(){
+        return confirm('Are you update?');
+        }
+    </script>
 
 
 </body>

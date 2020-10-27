@@ -127,12 +127,12 @@ $pagination = pagination_admin($url, $page, $total);
                         foreach ($_SESSION['results_user'] as $result) : ?>
                             <tr scope="row">
                                 <td><?php echo $result['id']; ?></td>
-                                <td><?php echo $result['username']; ?></td>
-                                <td><?php echo $result['fullname']; ?></td>
-                                <td><?php echo $result['email']; ?></td>
+                                <td class="fix_overtext"><?php echo $result['username']; ?></td>
+                                <td  class="fix_overtext"><?php echo $result['fullname']; ?></td>
+                                <td  class="fix_overtext"><?php echo $result['email']; ?></td>
                                 <td>
                                     
-                                <a href="chitiet.php?id=<?php echo $result ['id']?>"><i class="fa fa-eye" aria-hidden="true"></i></a>
+                                <a href="chitiet.php?id=<?php echo $result['id']?>"><i class="fa fa-eye" aria-hidden="true"></i></a>
 						
                         <a href="edituserid.php?id=<?php echo $result['id']?>"><i class="fa fa-pencil-square-o" aria-hidden="true"></i></a>
 
@@ -173,6 +173,5 @@ $pagination = pagination_admin($url, $page, $total);
             });
         });
 </script>
-
     </body>
 </html>

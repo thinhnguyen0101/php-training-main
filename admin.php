@@ -32,22 +32,22 @@ if (!isAdmin()) {
 
 		<div class="input-group">
 			<label>Username</label>
-			<input type="text" name="username" value="<?php echo $username; ?>">
+			<input type="text" name="username" value="<?php echo $username; ?>" placeholder="ex:user111">
 		</div>
 		<div class="input-group">
 			<label>Full Name</label>
-			<input type="text" name="fullname" value="<?php echo $fullname; ?>">
+			<input type="text" name="fullname" value="<?php echo $fullname; ?>" placeholder="ex:Nguyen Van A">
 		</div>
 		<div class="input-group">
 			<label>Email</label>
-			<input type="email" name="email" value="<?php echo $email; ?>">
+			<input type="email" name="email" value="<?php echo $email; ?>" placeholder="ex:nguyenvana@gmail.com">
 		</div>
 		<div class="input-group">
 			<label>User type</label>
 			<select name="user_type" id="user_type" >
 				<option value=""></option>
-				<option value="admin">Admin</option>
-				<option value="user">User</option>
+				<option value="admin" name="admin">Admin</option>
+				<option value="user" name="user">User</option>
 			</select>
 		</div>
 		<div class="input-group">

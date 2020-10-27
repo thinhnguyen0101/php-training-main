@@ -1,18 +1,26 @@
 <?php 
 session_start();
 
+
+$user_id = intval($_GET['edit']);
 include('functions.php');
 
-// if (isset($_GET['edit'])) {
-//     if(isLoggedIn()){
-//         $query = "SELECT * FROM users WHERE id=" . $_SESSION['user']['id'];
-//         $results = mysqli_query($conn, $query);
-        
-//     }
-// }
-$id=$_GET['id'];
-$query=mysqli_query($conn,"select * from `users` where id='$id'");
-$row=mysqli_fetch_assoc($query);
+//$id=$_GET['id'];
+
+
+if (isset($_GET['edit'])) {
+    if (isLoggedIn()) {
+        $query = "SELECT * FROM users WHERE id=" . $user_id;
+        $result = mysqli_query($conn, $query);
+        $row = mysqli_fetch_assoc($result);
+    }
+}
+
+
+// $path = explode('=', $_SERVER['REQUEST_URI']);
+// $id = $path[count($path) - 1];
+// $query=mysqli_query($conn,"select * from `users` where id='$id'");
+// $row=mysqli_fetch_assoc($query);
 
 ?>
 
@@ -48,33 +56,33 @@ $row=mysqli_fetch_assoc($query);
 
 
         <?php
-        if (isset($_POST['save_btn'])){
-            $id=$_GET['id'];
-            $username=$_POST['username'];
-            $fullname=$_POST['fullname'];
-            $email=$_POST['email'];
+        // if (isset($_POST['save_btn'])){
+        //     //$id=$_GET['id'];
+        //     $username=$_POST['username1'];
+        //     $fullname=$_POST['fullname1'];
+        //     $email=$_POST['email1'];
         
-            // Create connection
-            $conn = new mysqli("localhost", "root", "", "users");
-            // Check connection
-            if ($conn->connect_error) {
-            die("Connection failed: " . $conn->connect_error);
-            }
+        //     // Create connection
+        //     $conn = new mysqli("localhost", "root", "", "users");
+        //     // Check connection
+        //     if ($conn->connect_error) {
+        //     die("Connection failed: " . $conn->connect_error);
+        //     }
             
-            $sql = "UPDATE `users` SET username='$username', fullname=$fullname', email='$email' WHERE id='$id'";
+        //     $sql = "UPDATE `users` SET username='$username', fullname=$fullname', email='$email' WHERE id='$id'";
             
-            if ($conn->query($sql) === TRUE) {
-            echo "Record updated successfully";
-            } else {
-            echo "Error updating record: " . $conn->error;
-            }
+        //     if ($conn->query($sql) === TRUE) {
+        //     echo "Record updated successfully";
+        //     } else {
+        //     echo "Error updating record: " . $conn->error;
+        //     }
             
-            $conn->close();
-            }
+        //     $conn->close();
+        //     }
             ?>
 
 <div class="back" style="text-align: center">
-    <input type="button" value="Back" onClick="javascript:history.go(-2)" />
+    <input type="button" value="Back" onClick="javascript:history.go(-1)" />
 </div>
 	
 

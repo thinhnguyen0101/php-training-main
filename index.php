@@ -39,17 +39,17 @@ if (!isLoggedIn()) {
 			<div>
 			
 				<?php  if (isset($_SESSION['user'])) : ?>
-					<strong>ID: <?php echo $_SESSION['user']['id']; ?></strong>
 					<br><strong>Username: <?php echo $_SESSION['user']['username']; ?><i  style="color: #888;">(<?php echo ucfirst($_SESSION['user']['user_type']); ?>)</i></strong>
 
 					<small>
 						<br><strong>Fullname: </strong> <?php echo $_SESSION['user']['fullname']; ?>
 						<br><strong>Email: </strong> <?php echo $_SESSION['user']['email']; ?><br>
 						<div class="input-group">
-							<button class="btn" name="login_btn"><a href="edituserus.php?id='<?php echo $_SESSION['user']['id']; ?>" style="color: #FFFFFF;">Edit Information</a><br></button>
+							<?php $demo =  $_SESSION['user']['id'];?>
+							<button class="btn" name="login_btn"><a href="edituserus.php?id='<?php echo md5($demo) ?>" style="color: #FFFFFF;">Edit Information</a><br></button>
 						</div>
 						<div class="input-group">
-							<button class="btn" name="doipassword_btn"><a href="password.php?id='<?php echo $_SESSION['user']['id']; ?>" style="color: #FFFFFF;">Update Pasword</a><br></button>
+							<button class="btn" name="doipassword_btn"><a href="password.php?id='<?php echo md5($_SESSION['user']['id']); ?>" style="color: #FFFFFF;">Update Pasword</a><br></button>
 						</div>
 						<div class="input-group">
 							<button class="btn" name="login_btn"><a href="index.php?logout='1'" style="color: #FFFFFF;">Logout</a></button>
